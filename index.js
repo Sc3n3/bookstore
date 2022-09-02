@@ -1,3 +1,3 @@
-import dotenv from 'dotenv'
+import router from './router.js'
 
-dotenv.config()
+router.listen(80, () => console.log('Listening on port: 80'))
