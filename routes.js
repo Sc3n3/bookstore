@@ -28,7 +28,11 @@ export default [
 				path: '/token',
 				method: 'POST',
 				action: 'getTokenByCredentials',
-				controller: Customer
+				controller: Customer,
+				validation: {
+					email: 'required',
+					password: 'required'
+				}
 			}
 		]
 	},
