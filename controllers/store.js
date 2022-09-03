@@ -1,5 +1,14 @@
 export default class Store {
-	index(req, res, next){
-		res.send('TEST')
+	listStores(req, res){
+
+	},
+	createStore(req, res){
+
+	}
+	updateStore(req, res){
+
+	}
+	deleteStore(req, res){
+		
 	}
 }
