@@ -1,7 +1,7 @@
 export default class Book {
 	listBooks(req, res){
 
-	},
+	}
 	createBook(req, res){
 
 	}
@@ -9,6 +9,6 @@ export default class Book {
 
 	}
 	deleteBook(req, res){
-		
+
 	}
 }

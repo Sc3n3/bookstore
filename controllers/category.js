@@ -1,7 +1,7 @@
 export default class Category {
 	listCategories(req, res){
 
-	},
+	}
 	createCategory(req, res){
 
 	}
