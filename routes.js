@@ -22,7 +22,11 @@ export default [
 				method: 'PUT',
 				action: 'updateCurrentCustomer',
 				controller: Customer,
-				middleware: [ auth ]
+				middleware: [ auth ],
+				validation: {
+					name: 'required',
+					password: 'required'
+				}
 			},
 			{
 				path: '/token',
@@ -33,7 +37,17 @@ export default [
 					email: 'required',
 					password: 'required'
 				}
-			}
+			},
+			{
+				path: '/register',
+				method: 'POST',
+				action: 'createCustomer',
+				controller: Customer,
+				validation: {
+					name: 'required',
+					password: 'required'
+				}
+			},
 		]
 	},
 	{
@@ -50,7 +64,12 @@ export default [
 				path: '/',
 				method: 'POST',
 				action: 'createCustomer',
-				controller: Customer
+				controller: Customer,
+				validation: {
+					name: 'required',
+					email: 'required',
+					password: 'required'
+				}
 			},
 			{
 				path: '/:id',

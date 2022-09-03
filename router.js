@@ -25,6 +25,7 @@ router.use(express.urlencoded({ extended: false }))
 			router[method](route.path, [...middleware, (req, res, next) => {
 				if (route.validation) {
 					const validation = new Validator(req.body, route.validation)
+
 					if (validation.fails()) {
 						return res.status(422).send({
 							success: false,
@@ -44,5 +45,12 @@ router.use(express.urlencoded({ extended: false }))
 		}
 	})
 })(routes)
+
+router.use((err, req, res, next) => {
+  res.status(500).send({ 
+  	success: false,
+  	message: err.message
+  })
+})
 
 export default router
