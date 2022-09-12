@@ -1,12 +1,21 @@
 import jwt from 'jsonwebtoken'
+import statusCodes from 'http-codes'
+import { Customer } from '../models/index.js'
 
-export default (req, res, next) => {
+export default async (req, res, next) => {
 	try {
     const token = req.headers.authorization.split(" ")[1]
-    const user = jwt.verify(token, process.env.APP_KEY)
-    req.user = user
-    next()
+    const info = jwt.verify(token, process.env.APP_KEY)
+    const user = await Customer.findByPk(info.id)
+
+    if (!user) {
+    	throw new Error('Customer not exists.')
+    }
+
+		req.user = user	
+  	next()
+
   } catch (err) {
-  	res.status(401).send({ message: 'Authentication failed!' })
+  	res.status(statusCodes.UNAUTHORIZED).send({ message: 'Authentication failed!' })
   }
 }

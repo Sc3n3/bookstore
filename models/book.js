@@ -1,10 +1,14 @@
-import { Sequelize, DataTypes, Model } from 'sequelize'
+import { Sequelize, DataTypes } from 'sequelize'
 import database from '../database.js'
-import Category from './category.js'
-import Store from './store.js'
+import Base from './base.js'
 
-class Book extends Model {
-
+class Book extends Base {
+	toJSON(){
+		return {
+			...super.toJSON(),
+			url: '/books/'+ this.id
+		}
+	}
 }
 
 export default Book.init({

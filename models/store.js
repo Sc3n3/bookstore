@@ -1,8 +1,14 @@
-import { Sequelize, DataTypes, Model } from 'sequelize'
+import { Sequelize, DataTypes } from 'sequelize'
 import database from '../database.js'
+import Base from './base.js'
 
-class Store extends Model {
-
+class Store extends Base {
+  toJSON(){
+    return {
+      ...super.toJSON(),
+      url: '/stores/'+ this.id
+    }
+  }
 }
 
 export default Store.init({

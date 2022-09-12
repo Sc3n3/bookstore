@@ -1,9 +1,14 @@
-import { Sequelize, DataTypes, Model } from 'sequelize'
+import { Sequelize, DataTypes } from 'sequelize'
 import database from '../database.js'
-import Book from './book.js'
+import Base from './base.js'
 
-class Category extends Model {
-
+class Category extends Base {
+  toJSON(){
+    return {
+      ...super.toJSON(),
+      url: '/categories/'+ this.id
+    }
+  }
 }
 
 export default Category.init({

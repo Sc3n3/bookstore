@@ -1,6 +1,7 @@
 import './config.js'
 import express from 'express'
-import Validator from 'validatorjs';
+import statusCodes from 'http-codes'
+import Validator from 'validatorjs'
 import routes from './routes.js'
 
 const router = express()
@@ -22,12 +23,12 @@ router.use(express.urlencoded({ extended: false }))
 			}))
 		} else {
 			const method = route.method.toLowerCase()
-			router[method](route.path, [...middleware, (req, res, next) => {
+			router[method](route.path, ...[...middleware, (req, res, next) => {
 				if (route.validation) {
 					const validation = new Validator(req.body, route.validation)
 
 					if (validation.fails()) {
-						return res.status(422).send({
+						return res.status(statusCodes.UNPROCESSABLE_ENTITY).send({
 							success: false,
 							message: 'Failed!',
 							...validation.errors
@@ -47,9 +48,10 @@ router.use(express.urlencoded({ extended: false }))
 })(routes)
 
 router.use((err, req, res, next) => {
-  res.status(500).send({ 
+  res.status(statusCodes.INTERNAL_SERVER_ERROR).send({ 
   	success: false,
-  	message: err.message
+  	message: err.message,
+  	...(process.env.APP_DEBUG ? { stack: err.stack } : {})
   })
 })
 

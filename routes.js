@@ -12,21 +12,25 @@ export default [
 		group: [
 			{
 				path: '/me',
-				method: 'GET',
-				action: 'getCurrentTokenCustomer',
-				controller: Customer,
-				middleware: [ auth ]
-			},
-			{
-				path: '/me',
-				method: 'PUT',
-				action: 'updateCurrentCustomer',
-				controller: Customer,
 				middleware: [ auth ],
-				validation: {
-					name: 'required',
-					password: 'required'
-				}
+				group: [
+					{
+						path: '/',
+						method: 'GET',
+						action: 'getCurrentTokenCustomer',
+						controller: Customer
+					},
+					{
+						path: '/',
+						method: 'PUT',
+						action: 'updateCurrentCustomer',
+						controller: Customer,
+						validation: {
+							name: 'required',
+							password: 'required'
+						}
+					}
+				]
 			},
 			{
 				path: '/token',
@@ -73,15 +77,20 @@ export default [
 			},
 			{
 				path: '/:id',
-				method: 'PUT',
-				action: 'updateCustomer',
-				controller: Customer	
-			},
-			{
-				path: '/:id',
-				method: 'DELETE',
-				action: 'deleteCustomer',
-				controller: Customer	
+				group: [
+					{
+						path: '/:id',
+						method: 'PUT',
+						action: 'updateCustomer',
+						controller: Customer	
+					},
+					{
+						path: '/:id',
+						method: 'DELETE',
+						action: 'deleteCustomer',
+						controller: Customer	
+					}
+				]
 			}
 		]
 	},
@@ -103,15 +112,26 @@ export default [
 			},
 			{
 				path: '/:id',
-				method: 'PUT',
-				action: 'updateStore',
-				controller: Store
-			},
-			{
-				path: '/:id',
-				method: 'DELETE',
-				action: 'deleteStore',
-				controller: Store
+				group: [
+					{
+						path: '/',
+						method: 'GET',
+						action: 'storeDetail',
+						controller: Store
+					},
+					{
+						path: '/',
+						method: 'PUT',
+						action: 'updateStore',
+						controller: Store
+					},
+					{
+						path: '/',
+						method: 'DELETE',
+						action: 'deleteStore',
+						controller: Store
+					}
+				]
 			}
 		]
 	},
@@ -133,15 +153,32 @@ export default [
 			},
 			{
 				path: '/:id',
-				method: 'PUT',
-				action: 'updateCategory',
-				controller: Category
-			},
-			{
-				path: '/:id',
-				method: 'DELETE',
-				action: 'deleteCategory',
-				controller: Category
+				group: [
+					{
+						path: '/',
+						method: 'GET',
+						action: 'categoryDetail',
+						controller: Category
+					},
+					{
+						path: '/books',
+						method: 'GET',
+						action: 'categoryBooks',
+						controller: Category
+					},
+					{
+						path: '/',
+						method: 'PUT',
+						action: 'updateCategory',
+						controller: Category
+					},
+					{
+						path: '/',
+						method: 'DELETE',
+						action: 'deleteCategory',
+						controller: Category
+					}
+				]
 			}
 		]
 	},
@@ -163,15 +200,26 @@ export default [
 			},
 			{
 				path: '/:id',
-				method: 'PUT',
-				action: 'updateBook',
-				controller: Book
-			},
-			{
-				path: '/:id',
-				method: 'DELETE',
-				action: 'deleteBook',
-				controller: Book
+				group:[
+					{
+						path: '/',
+						method: 'GET',
+						action: 'bookDetail',
+						controller: Book
+					},
+					{
+						path: '/',
+						method: 'PUT',
+						action: 'updateBook',
+						controller: Book
+					},
+					{
+						path: '/',
+						method: 'DELETE',
+						action: 'deleteBook',
+						controller: Book
+					}
+				]
 			}
 		]
 	}

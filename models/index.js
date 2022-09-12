@@ -10,7 +10,7 @@ Category.hasMany(Book, { as: 'books', foreignKey: 'categoryId' })
 Category.hasMany(Category, { as: 'subs', foreignKey: 'parentId' })
 Category.belongsTo(Category, { as: 'parent', foreignKey: 'parentId' })
 
-Store.hasMany(Book, { as: 'books', foreingKey: 'storeId' })
+Store.hasMany(Book, { as: 'books', foreignKey: 'storeId' })
 
 export {
 	Book, Store, Category, Customer

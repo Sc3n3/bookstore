@@ -1,9 +1,11 @@
 import jwt from 'jsonwebtoken'
+import statusCodes from 'http-codes'
+import Base from './base.js'
 import { Customer as Model } from '../models/index.js'
 
-export default class Customer {
+export default class Customer extends Base {
 	getCurrentTokenCustomer(req, res){
-		res.status(200).send({
+		res.status(statusCodes.OK).send({
 			success: true,
 			data: {
 				id: req.user.id,
@@ -27,7 +29,7 @@ export default class Customer {
 				name: customer.name
 			}, process.env.APP_KEY, { expiresIn: '24h' })
 
-			res.status(200).send({
+			res.status(statusCodes.OK).send({
 				success: true,
 				data: {
 					id: customer.id,
@@ -37,7 +39,7 @@ export default class Customer {
 				}
 			})
 		} else {
-			res.status(404).send()
+			res.status(statusCodes.NOT_FOUND).send()
 		}
 	}
 	async updateCurrentCustomer(req, res){
@@ -63,7 +65,7 @@ export default class Customer {
 			password: req.body.password
 		})
 
-		res.status(200).send({
+		res.status(statusCodes.OK).send({
 			status: true,
 			data: {
 				id: customer.id,
