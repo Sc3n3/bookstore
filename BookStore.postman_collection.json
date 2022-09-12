@@ -1,657 +1,657 @@
 {
-	"info": {
-		"_postman_id": "d4ecf546-1e5b-4f8b-a16d-77b5d418a1c6",
-		"name": "BookStore",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-	},
-	"item": [
-		{
-			"name": "Books",
-			"item": [
-				{
-					"name": "List Books",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {}
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json",
-								"disabled": true
-							}
-						],
-						"url": {
-							"raw": "{{host}}/books",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"books"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Search Books",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {}
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json",
-								"disabled": true
-							}
-						],
-						"url": {
-							"raw": "{{host}}/books?q=amok",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"books"
-							],
-							"query": [
-								{
-									"key": "q",
-									"value": "amok"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Book Detail",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {}
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json",
-								"disabled": true
-							}
-						],
-						"url": {
-							"raw": "{{host}}/books/1",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"books",
-								"1"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Categories",
-			"item": [
-				{
-					"name": "List Categories",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {}
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json",
-								"disabled": true
-							}
-						],
-						"url": {
-							"raw": "{{host}}/categories",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"categories"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Category Detail",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {}
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json",
-								"disabled": true
-							}
-						],
-						"url": {
-							"raw": "{{host}}/categories/1",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"categories",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Category Books",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {}
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json",
-								"disabled": true
-							}
-						],
-						"url": {
-							"raw": "{{host}}/categories/1/books",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"categories",
-								"1",
-								"books"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Category Delete",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {}
-					},
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json",
-								"disabled": true
-							}
-						],
-						"url": {
-							"raw": "{{host}}/categories/9",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"categories",
-								"9"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Stores",
-			"item": [
-				{
-					"name": "List Stores",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {}
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json",
-								"disabled": true
-							}
-						],
-						"url": {
-							"raw": "{{host}}/stores",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"stores"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Store Detail",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {}
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json",
-								"disabled": true
-							}
-						],
-						"url": {
-							"raw": "{{host}}/stores/1",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"stores",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Store Delete",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {}
-					},
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json",
-								"disabled": true
-							}
-						],
-						"url": {
-							"raw": "{{host}}/stores/1",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"stores",
-								"1"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Register",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.collectionVariables.set(\"token\", pm.response.json().data.token);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"protocolProfileBehavior": {
-				"disabledSystemHeaders": {}
-			},
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"type": "text",
-						"value": "application/json",
-						"disabled": true
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Gokay\",\r\n    \"email\": \"gokay@test.com\",\r\n    \"password\": \"123456\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{host}}/auth/register",
-					"host": [
-						"{{host}}"
-					],
-					"path": [
-						"auth",
-						"register"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Login",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"if (pm.response.json()) {\r",
-							"    pm.collectionVariables.set(\"token\", pm.response.json().data.token);\r",
-							"}"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"protocolProfileBehavior": {
-				"disabledSystemHeaders": {}
-			},
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text",
-						"disabled": true
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"email\": \"ahmet@test.com\",\r\n    \"password\": \"123456\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{host}}/auth/token",
-					"host": [
-						"{{host}}"
-					],
-					"path": [
-						"auth",
-						"token"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Current Customer",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"protocolProfileBehavior": {
-				"disabledSystemHeaders": {}
-			},
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"type": "text",
-						"value": "application/json",
-						"disabled": true
-					}
-				],
-				"url": {
-					"raw": "{{host}}/auth/me",
-					"host": [
-						"{{host}}"
-					],
-					"path": [
-						"auth",
-						"me"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Update Current Customer",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							""
-						],
-						"type": "text/javascript"
-					}
-				},
-				{
-					"listen": "prerequest",
-					"script": {
-						"exec": [
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"protocolProfileBehavior": {
-				"disabledSystemHeaders": {}
-			},
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"type": "text",
-						"value": "application/json",
-						"disabled": true
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Gokay\",\r\n    \"password\": \"123456\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{host}}/auth/me",
-					"host": [
-						"{{host}}"
-					],
-					"path": [
-						"auth",
-						"me"
-					]
-				}
-			},
-			"response": []
-		}
-	],
-	"auth": {
-		"type": "bearer",
-		"bearer": [
-			{
-				"key": "token",
-				"value": "{{token}}",
-				"type": "string"
-			}
-		]
-	},
-	"event": [
-		{
-			"listen": "prerequest",
-			"script": {
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
-		},
-		{
-			"listen": "test",
-			"script": {
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
-		}
-	],
-	"variable": [
-		{
-			"key": "host",
-			"value": "http://localhost"
-		},
-		{
-			"key": "token",
-			"value": ""
-		}
-	]
+    "info": {
+        "_postman_id": "d4ecf546-1e5b-4f8b-a16d-77b5d418a1c6",
+        "name": "BookStore",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Books",
+            "item": [
+                {
+                    "name": "List Books",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "protocolProfileBehavior": {
+                        "disabledSystemHeaders": {}
+                    },
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "type": "text",
+                                "value": "application/json",
+                                "disabled": true
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{host}}/books",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "books"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Search Books",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "protocolProfileBehavior": {
+                        "disabledSystemHeaders": {}
+                    },
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "type": "text",
+                                "value": "application/json",
+                                "disabled": true
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{host}}/books?q=amok",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "books"
+                            ],
+                            "query": [
+                                {
+                                    "key": "q",
+                                    "value": "amok"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Book Detail",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "protocolProfileBehavior": {
+                        "disabledSystemHeaders": {}
+                    },
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "type": "text",
+                                "value": "application/json",
+                                "disabled": true
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{host}}/books/1",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "books",
+                                "1"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Categories",
+            "item": [
+                {
+                    "name": "List Categories",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "protocolProfileBehavior": {
+                        "disabledSystemHeaders": {}
+                    },
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "type": "text",
+                                "value": "application/json",
+                                "disabled": true
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{host}}/categories",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "categories"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Category Detail",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "protocolProfileBehavior": {
+                        "disabledSystemHeaders": {}
+                    },
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "type": "text",
+                                "value": "application/json",
+                                "disabled": true
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{host}}/categories/1",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "categories",
+                                "1"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Category Books",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "protocolProfileBehavior": {
+                        "disabledSystemHeaders": {}
+                    },
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "type": "text",
+                                "value": "application/json",
+                                "disabled": true
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{host}}/categories/1/books",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "categories",
+                                "1",
+                                "books"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Category Delete",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "protocolProfileBehavior": {
+                        "disabledSystemHeaders": {}
+                    },
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "type": "text",
+                                "value": "application/json",
+                                "disabled": true
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{host}}/categories/9",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "categories",
+                                "9"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Stores",
+            "item": [
+                {
+                    "name": "List Stores",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "protocolProfileBehavior": {
+                        "disabledSystemHeaders": {}
+                    },
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "type": "text",
+                                "value": "application/json",
+                                "disabled": true
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{host}}/stores",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "stores"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Store Detail",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "protocolProfileBehavior": {
+                        "disabledSystemHeaders": {}
+                    },
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "type": "text",
+                                "value": "application/json",
+                                "disabled": true
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{host}}/stores/1",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "stores",
+                                "1"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Store Delete",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "protocolProfileBehavior": {
+                        "disabledSystemHeaders": {}
+                    },
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "type": "text",
+                                "value": "application/json",
+                                "disabled": true
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{host}}/stores/1",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "stores",
+                                "1"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Register",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.collectionVariables.set(\"token\", pm.response.json().data.token);"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "protocolProfileBehavior": {
+                "disabledSystemHeaders": {}
+            },
+            "request": {
+                "auth": {
+                    "type": "noauth"
+                },
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "type": "text",
+                        "value": "application/json",
+                        "disabled": true
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"name\": \"Gokay\",\r\n    \"email\": \"gokay@test.com\",\r\n    \"password\": \"123456\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{host}}/auth/register",
+                    "host": [
+                        "{{host}}"
+                    ],
+                    "path": [
+                        "auth",
+                        "register"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Login",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "if (pm.response.json()) {\r",
+                            "    pm.collectionVariables.set(\"token\", pm.response.json().data.token);\r",
+                            "}"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "protocolProfileBehavior": {
+                "disabledSystemHeaders": {}
+            },
+            "request": {
+                "auth": {
+                    "type": "noauth"
+                },
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text",
+                        "disabled": true
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"email\": \"ahmet@test.com\",\r\n    \"password\": \"123456\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{host}}/auth/token",
+                    "host": [
+                        "{{host}}"
+                    ],
+                    "path": [
+                        "auth",
+                        "token"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Current Customer",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            ""
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "protocolProfileBehavior": {
+                "disabledSystemHeaders": {}
+            },
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "type": "text",
+                        "value": "application/json",
+                        "disabled": true
+                    }
+                ],
+                "url": {
+                    "raw": "{{host}}/auth/me",
+                    "host": [
+                        "{{host}}"
+                    ],
+                    "path": [
+                        "auth",
+                        "me"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Update Current Customer",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            ""
+                        ],
+                        "type": "text/javascript"
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "exec": [
+                            ""
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "protocolProfileBehavior": {
+                "disabledSystemHeaders": {}
+            },
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "type": "text",
+                        "value": "application/json",
+                        "disabled": true
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"name\": \"Gokay\",\r\n    \"password\": \"123456\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{host}}/auth/me",
+                    "host": [
+                        "{{host}}"
+                    ],
+                    "path": [
+                        "auth",
+                        "me"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ],
+    "auth": {
+        "type": "bearer",
+        "bearer": [
+            {
+                "key": "token",
+                "value": "{{token}}",
+                "type": "string"
+            }
+        ]
+    },
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": [
+        {
+            "key": "host",
+            "value": "http://localhost"
+        },
+        {
+            "key": "token",
+            "value": ""
+        }
+    ]
 }

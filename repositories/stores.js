@@ -5,34 +5,34 @@ import { Store } from '../models/index.js'
 
 export default class Stores extends Base {
 
-	model = Store
+  model = Store
 
-	constructor(){
-		super()
-		this.books = new Books()
-	}
+  constructor(){
+    super()
+    this.books = new Books()
+  }
 
-	async getStores(includes = []){
-		const stores = await this.model.findAll({
-			order: [[ 'name', 'asc' ]],
-			include: includes
-		})
+  async getStores(includes = []){
+    const stores = await this.model.findAll({
+      order: [[ 'name', 'asc' ]],
+      include: includes
+    })
 
-		return stores
-	}
-	async getStore(id, includes = []){
-		const store = await this.model.findByPk(id, {
-			include: includes
-		})
+    return stores
+  }
+  async getStore(id, includes = []){
+    const store = await this.model.findByPk(id, {
+      include: includes
+    })
 
-		return store
-	}
-	async deleteStore(id){
-		return sequelize.transaction(async () => {
-			await this.books.model.destroy({ where: { storeId: id } })
-			await this.model.destroy({ where: { id: id } })
+    return store
+  }
+  async deleteStore(id){
+    return sequelize.transaction(async () => {
+      await this.books.model.destroy({ where: { storeId: id } })
+      await this.model.destroy({ where: { id: id } })
 
-			return true
-		})
-	}
+      return true
+    })
+  }
 }

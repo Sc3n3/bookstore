@@ -12,16 +12,16 @@ class Store extends Base {
 }
 
 export default Store.init({
-	id: {
+  id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
     primaryKey: true
   },
   name: {
-  	type: DataTypes.STRING
+    type: DataTypes.STRING
   }
 }, {
-	sequelize: database,
-	tableName: 'stores',
+  sequelize: database,
+  tableName: 'stores',
   timestamps: false
 })

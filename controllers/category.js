@@ -3,42 +3,42 @@ import Base from './base.js'
 import { Categories } from '../repositories/index.js'
 
 export default class Category extends Base {
-	constructor(){
-		super()
-		this.categories = new Categories() 
-	}
-	async listCategories(req, res){
-		const categories = await this.categories.getCategoriesWithRelatedCategories()
-		res.status(statusCodes.OK).send({
-			success: true,
-			data: this.toJSON(categories)
-		})
-	}
-	async categoryDetail(req, res){
-		const category = await this.categories.getCategoryWithRelatedCategoriesAndBooks(req.bindings.category.id)
-		res.status(statusCodes.OK).send({
-			success: true,
-			data: this.toJSON(category)
-		})
+  constructor(){
+    super()
+    this.categories = new Categories() 
+  }
+  async listCategories(req, res){
+    const categories = await this.categories.getCategoriesWithRelatedCategories()
+    res.status(statusCodes.OK).send({
+      success: true,
+      data: this.toJSON(categories)
+    })
+  }
+  async categoryDetail(req, res){
+    const category = await this.categories.getCategoryWithRelatedCategoriesAndBooks(req.bindings.category.id)
+    res.status(statusCodes.OK).send({
+      success: true,
+      data: this.toJSON(category)
+    })
 
-	}
-	async categoryBooks(req, res){
-		const books = await this.categories.getAllBooksOfCategory(req.bindings.category.id)
-		res.status(statusCodes.OK).send({
-			success: true,
-			data: this.toJSON(books)
-		})
-	}
-	createCategory(req, res){
+  }
+  async categoryBooks(req, res){
+    const books = await this.categories.getAllBooksOfCategory(req.bindings.category.id)
+    res.status(statusCodes.OK).send({
+      success: true,
+      data: this.toJSON(books)
+    })
+  }
+  createCategory(req, res){
 
-	}
-	updateCategory(req, res){
+  }
+  updateCategory(req, res){
 
-	}
-	async deleteCategory(req, res){
-		await this.categories.deleteCategory(req.bindings.category.id)
-		res.status(statusCodes.OK).send({
-			success: true
-		})
-	}
+  }
+  async deleteCategory(req, res){
+    await this.categories.deleteCategory(req.bindings.category.id)
+    res.status(statusCodes.OK).send({
+      success: true
+    })
+  }
 }

@@ -13,5 +13,5 @@ Category.belongsTo(Category, { as: 'parent', foreignKey: 'parentId' })
 Store.hasMany(Book, { as: 'books', foreignKey: 'storeId' })
 
 export {
-	Book, Store, Category, Customer
+  Book, Store, Category, Customer
 }

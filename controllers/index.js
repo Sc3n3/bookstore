@@ -4,5 +4,5 @@ import Customer from './customer.js'
 import Category from './category.js'
 
 export {
-	Book, Store, Customer, Category
+  Book, Store, Customer, Category
 }
