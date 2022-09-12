@@ -18,7 +18,7 @@ export default class Store extends Base {
 
 	}
 	async storeDetail(req, res){
-		const store = await this.stores.getStore(req.params.id, [
+		const store = await this.stores.getStore(req.bindings.store.id, [
 			...this.stores.include(['books.category'])
 		])
 		res.status(statusCodes.OK).send({
@@ -33,7 +33,7 @@ export default class Store extends Base {
 
 	}
 	async deleteStore(req, res){
-		await this.stores.deleteStore(req.params.id)
+		await this.stores.deleteStore(req.bindings.store.id)
 		res.status(statusCodes.OK).send({
 			success: true
 		})

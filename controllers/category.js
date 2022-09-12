@@ -15,7 +15,7 @@ export default class Category extends Base {
 		})
 	}
 	async categoryDetail(req, res){
-		const category = await this.categories.getCategoryWithRelatedCategoriesAndBooks(req.params.id)
+		const category = await this.categories.getCategoryWithRelatedCategoriesAndBooks(req.bindings.category.id)
 		res.status(statusCodes.OK).send({
 			success: true,
 			data: this.toJSON(category)
@@ -23,7 +23,7 @@ export default class Category extends Base {
 
 	}
 	async categoryBooks(req, res){
-		const books = await this.categories.getAllBooksOfCategory(req.params.id)
+		const books = await this.categories.getAllBooksOfCategory(req.bindings.category.id)
 		res.status(statusCodes.OK).send({
 			success: true,
 			data: this.toJSON(books)
@@ -36,7 +36,7 @@ export default class Category extends Base {
 
 	}
 	async deleteCategory(req, res){
-		await this.categories.deleteCategory(req.params.id)
+		await this.categories.deleteCategory(req.bindings.category.id)
 		res.status(statusCodes.OK).send({
 			success: true
 		})

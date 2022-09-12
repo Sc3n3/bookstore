@@ -27,7 +27,7 @@ export default class Book extends Base {
 		})
 	}
 	async bookDetail(req, res){
-		const book = await this.books.getBook(req.params.id, [
+		const book = await this.books.getBook(req.bindinds.book.id, [
 			...this.books.include(['store', 'category'])
 		])
 		res.status(statusCodes.OK).send({

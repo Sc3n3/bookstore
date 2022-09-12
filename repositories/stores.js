@@ -1,5 +1,6 @@
 import Base from './base.js'
 import { Books } from './index.js'
+import sequelize from '../database.js'
 import { Store } from '../models/index.js'
 
 export default class Stores extends Base {
@@ -27,9 +28,11 @@ export default class Stores extends Base {
 		return store
 	}
 	async deleteStore(id){
-		await this.books.model.destroy({ where: { storeId: id } })
-		await this.model.destroy({ where: { id: id } })
+		return sequelize.transaction(async () => {
+			await this.books.model.destroy({ where: { storeId: id } })
+			await this.model.destroy({ where: { id: id } })
 
-		return true
+			return true
+		})
 	}
 }

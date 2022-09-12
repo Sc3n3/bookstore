@@ -1,5 +1,6 @@
 import Base from './base.js'
 import { Books } from './index.js'
+import sequelize from '../database.js'
 import { Category } from '../models/index.js'
 
 export default class Categories extends Base {
@@ -27,10 +28,12 @@ export default class Categories extends Base {
 		return category
 	}
 	async deleteCategory(id){
-		await this.books.model.destroy({ where: { categoryId: id } })
-		await this.model.destroy({ where: { id: id } })
+		return sequelize.transaction(async () => {
+			await this.books.model.destroy({ where: { categoryId: id } })
+			await this.model.destroy({ where: { id: id } })
 
-		return true
+			return true
+		})
 	}
 	async getCategoriesWithRelatedCategories(){
 		return await this.getCategories([
@@ -46,12 +49,13 @@ export default class Categories extends Base {
 		const subCategoryIds = []
 		for (const categoryId of categoryIds) {
 			const category = await this.getCategory(categoryId, [ ...this.include(['subs']) ])
-			
-			if (category.subs.length) {
-				subCategoryIds.push(...await this.getSubCategoryIds(category.subs.map(s => s.id)))	
-			}
+			if (category) {
+				if (category.subs.length) {
+					subCategoryIds.push(...await this.getSubCategoryIds(category.subs.map(s => s.id)))	
+				}
 
-			subCategoryIds.push(category.id)
+				subCategoryIds.push(category.id)	
+			}
 		}
 		return subCategoryIds
 	}
@@ -59,7 +63,7 @@ export default class Categories extends Base {
 		return await this.books.getBooks([ 
 			...includes, ...this.books.include(['store', 'category']) 
 			], { 
-				id: await this.getSubCategoryIds(id)
+				id: await this.getSubCategoryIds([ id ])
 			}, [[ 'name', 'asc' ]])
 	}
 }

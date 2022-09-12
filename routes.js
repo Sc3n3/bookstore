@@ -1,5 +1,6 @@
 import auth from './middlewares/auth.js'
-import { Customer, Store, Category, Book } from './controllers/index.js'
+import * as Controllers from './controllers/index.js'
+import { Category, Book, Store, Customer } from './models/index.js'
 
 export default [
 	{
@@ -18,13 +19,13 @@ export default [
 						path: '/',
 						method: 'GET',
 						action: 'getCurrentTokenCustomer',
-						controller: Customer
+						controller: Controllers.Customer
 					},
 					{
 						path: '/',
 						method: 'PUT',
 						action: 'updateCurrentCustomer',
-						controller: Customer,
+						controller: Controllers.Customer,
 						validation: {
 							name: 'required',
 							password: 'required'
@@ -36,7 +37,7 @@ export default [
 				path: '/token',
 				method: 'POST',
 				action: 'getTokenByCredentials',
-				controller: Customer,
+				controller: Controllers.Customer,
 				validation: {
 					email: 'required',
 					password: 'required'
@@ -46,7 +47,7 @@ export default [
 				path: '/register',
 				method: 'POST',
 				action: 'createCustomer',
-				controller: Customer,
+				controller: Controllers.Customer,
 				validation: {
 					name: 'required',
 					password: 'required'
@@ -62,13 +63,13 @@ export default [
 				path: '/',
 				method: 'GET',
 				action: 'listCustomers',
-				controller: Customer
+				controller: Controllers.Customer
 			},
 			{
 				path: '/',
 				method: 'POST',
 				action: 'createCustomer',
-				controller: Customer,
+				controller: Controllers.Customer,
 				validation: {
 					name: 'required',
 					email: 'required',
@@ -76,19 +77,22 @@ export default [
 				}
 			},
 			{
-				path: '/:id',
+				path: '/:customer',
+				bindings: {
+					customer: Customer
+				},
 				group: [
 					{
-						path: '/:id',
+						path: '/',
 						method: 'PUT',
 						action: 'updateCustomer',
-						controller: Customer	
+						controller: Controllers.Customer	
 					},
 					{
-						path: '/:id',
+						path: '/',
 						method: 'DELETE',
 						action: 'deleteCustomer',
-						controller: Customer	
+						controller: Controllers.Customer	
 					}
 				]
 			}
@@ -102,34 +106,37 @@ export default [
 				path: '/',
 				method: 'GET',
 				action: 'listStores',
-				controller: Store
+				controller: Controllers.Store
 			},
 			{
 				path: '/',
 				method: 'POST',
 				action: 'createStore',
-				controller: Store
+				controller: Controllers.Store
 			},
 			{
-				path: '/:id',
+				path: '/:store',
+				bindings: {
+					store: Store
+				},
 				group: [
 					{
 						path: '/',
 						method: 'GET',
 						action: 'storeDetail',
-						controller: Store
+						controller: Controllers.Store
 					},
 					{
 						path: '/',
 						method: 'PUT',
 						action: 'updateStore',
-						controller: Store
+						controller: Controllers.Store
 					},
 					{
 						path: '/',
 						method: 'DELETE',
 						action: 'deleteStore',
-						controller: Store
+						controller: Controllers.Store
 					}
 				]
 			}
@@ -143,40 +150,43 @@ export default [
 				path: '/',
 				method: 'GET',
 				action: 'listCategories',
-				controller: Category
+				controller: Controllers.Category
 			},
 			{
 				path: '/',
 				method: 'POST',
 				action: 'createCategory',
-				controller: Category
+				controller: Controllers.Category
 			},
 			{
-				path: '/:id',
+				path: '/:category',
+				bindings: {
+					category: Category
+				},
 				group: [
 					{
 						path: '/',
 						method: 'GET',
 						action: 'categoryDetail',
-						controller: Category
+						controller: Controllers.Category
 					},
 					{
 						path: '/books',
 						method: 'GET',
 						action: 'categoryBooks',
-						controller: Category
+						controller: Controllers.Category
 					},
 					{
 						path: '/',
 						method: 'PUT',
 						action: 'updateCategory',
-						controller: Category
+						controller: Controllers.Category
 					},
 					{
 						path: '/',
 						method: 'DELETE',
 						action: 'deleteCategory',
-						controller: Category
+						controller: Controllers.Category
 					}
 				]
 			}
@@ -190,34 +200,37 @@ export default [
 				path: '/',
 				method: 'GET',
 				action: 'listBooks',
-				controller: Book
+				controller: Controllers.Book
 			},
 			{
 				path: '/',
 				method: 'POST',
 				action: 'createBook',
-				controller: Book
+				controller: Controllers.Book
 			},
 			{
-				path: '/:id',
+				path: '/:book',
+				bindings: {
+					book: Book
+				},
 				group:[
 					{
 						path: '/',
 						method: 'GET',
 						action: 'bookDetail',
-						controller: Book
+						controller: Controllers.Book
 					},
 					{
 						path: '/',
 						method: 'PUT',
 						action: 'updateBook',
-						controller: Book
+						controller: Controllers.Book
 					},
 					{
 						path: '/',
 						method: 'DELETE',
 						action: 'deleteBook',
-						controller: Book
+						controller: Controllers.Book
 					}
 				]
 			}
