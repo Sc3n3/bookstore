@@ -47,7 +47,7 @@ export default class Base extends Model {
       if (Array.isArray(item)) {
         return item.map((i) => map(i))
       } else if (item instanceof Model) {
-        const replica = { ...item.toJSON() }
+        const replica = { ...item.get() }
         Object.keys(item.toJSON()).forEach((key) => {
           if (item[key] instanceof Model) {
             replica[key] = { ...map(item[key]) }
