@@ -30,13 +30,11 @@ export default class Base extends Model {
           ])) 
         }
 
-        const related = {
+        associations.push({
           model: _model,
           as: association,
           include: includes
-        }
-
-        associations.push(related)
+        })
       }
     })
 
@@ -48,7 +46,7 @@ export default class Base extends Model {
         return item.map((i) => map(i))
       } else if (item instanceof Model) {
         const replica = { ...item.get() }
-        Object.keys(item.toJSON()).forEach((key) => {
+        Object.keys(item.get()).forEach((key) => {
           if (item[key] instanceof Model) {
             replica[key] = { ...map(item[key]) }
           } else if (Array.isArray(item[key])) {
